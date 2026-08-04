@@ -23,8 +23,6 @@ PROJECT_ROOT = Path(__file__).resolve().parent
 
 
 class FrequencyAdapter(nn.Module):
-    """Keep the top-k FFT components independently for each hidden feature."""
-
     def __init__(self, top_k: int, d_model: int) -> None:
         super().__init__()
         if top_k < 1:
@@ -52,8 +50,6 @@ class FrequencyAdapter(nn.Module):
 
 
 class ChannelAdapter(nn.Module):
-    """Down-projection channel adapter without a backbone residual connection."""
-
     def __init__(self, d_model: int, n_channels: int, hidden_dim_ratio: int) -> None:
         super().__init__()
         if hidden_dim_ratio < 1:
@@ -83,7 +79,7 @@ class ChannelAdapter(nn.Module):
 
 
 class TimePEFTPipeline(nn.Module):
-    """MOMENT forecasting pipeline specialized to the timetest method."""
+    """MOMENT forecasting pipeline specialized to the timepeft method."""
 
     def __init__(
         self,
@@ -220,7 +216,7 @@ def train(model: nn.Module, train_loader, val_loader, args: argparse.Namespace, 
 
         current_val_loss = validation_loss(model, val_loader, device, loss_fn)
         print(f"Epoch {epoch}: train_mse={np.mean(losses):.6f}, val_mse={current_val_loss:.6f}")
-        if current_val_loss < best_loss - args.early_stopping_delta:
+        if current_val_loss < best_loss - args.early_stopping_delta: # For stability
             best_loss = current_val_loss
             stale_epochs = 0
         else:
