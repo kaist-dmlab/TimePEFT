@@ -1,7 +1,6 @@
 # Time-PEFT: Temporal and Multichannel Complexity-Based Fine-Tuning for Time-Series Foundation Models
 
 [![Python 3.10](https://img.shields.io/badge/python-3.10.15-blue.svg)](https://www.python.org/downloads/release/python-31015/)
-[![Pytorch](https://img.shields.io/badge/Pytorch-1.13.1-orange.svg)](https://pytorch.org/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
 
@@ -16,7 +15,6 @@ Recent studies have attempted to fine-tune time-series foundation models to enha
 Please refer to `requirements.txt`
 
 ```bash
-    pip install torch==1.13.1+cu117 --extra-index-url [https://download.pytorch.org/whl/cu117](https://download.pytorch.org/whl/cu117)
     pip install -r requirements.txt
 ```
 
